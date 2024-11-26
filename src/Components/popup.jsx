@@ -132,7 +132,7 @@ const PopUpContainer = () => {
           <div className="dropdown-item-hover" onClick={handleMetricsPopupToggle}>Metrics Data</div>
         </>
       )}
-    <div className="dropdown-item-hover" onClick={handleGuidePopupToggle}>BCP Guide</div>
+    {/* <div className="dropdown-item-hover" onClick={handleGuidePopupToggle}>BCP Guide</div> */}
       {/* Render popups based on roleID */}
       {(showResetPopup || showInvitePopup || showOrganizationPopup || showUserPopup || showAuditGrid || showMetricsGrid || showGuide) && (
         <div className="popup-container backdrop">

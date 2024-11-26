@@ -126,7 +126,6 @@ setLoading(false);
      <div className='background'></div>
      <div className='curve'></div>
      <div className=" me-auto d-flex flex-row">
-      <div className='px-2 '></div>
       <div className='bcp-logo'></div>
      </div>
     <div className="form d-flex justify-content-center align-items-center ">

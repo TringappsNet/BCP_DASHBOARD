@@ -132,7 +132,7 @@ p{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #2a433e;
+  background-color: #800020;
   z-index: -2;
 }
 
@@ -154,13 +154,14 @@ p{
   flex-direction: row;
   align-items: start;
   justify-container: start; */
-  width: 80px;
+  width: 100px;
   height: 50px;
   /* padding: 1rem !important; */
   /* padding-left:1rem; */
   background-size: cover; /*Ensure the background image covers the entire area*/
   background-position: center; /* Center the background image */
-  background-image: url('../../public/images/bcp2.png'); 
-  -webkit-filter: grayscale(100%) brightness(9);
-  filter: grayscale(100%) brightness(9);
+
+  background-image: url('../../public/images/JMI-logo2.png'); 
+  /* -webkit-filter: grayscale(100%) brightness(9);
+  filter: grayscale(100%) brightness(9); */
 }

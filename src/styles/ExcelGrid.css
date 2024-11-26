@@ -2,7 +2,7 @@
 .sticky-header th {
     position: sticky;
     top: 0;
-    background-color: #274b44 !important;
+    background-color: #800020 !important;
     /* background-color: #ffffff; */
     z-index: 1; 
   }
@@ -80,8 +80,8 @@
 
 
   .btn-secondary {
-    background-color: #299689;
-    border-color: #299689;
+    background-color: #800020;
+    border-color: #800020;
     color: #fff;
   }
 
@@ -172,7 +172,7 @@
 
 .audit-header-container {
   width: 100%;
-  background: linear-gradient(to right, #406a61, #3b746e, #2d766d) !important;
+  background: linear-gradient(to right, #692e3d, #800020, #692e3d) !important;
   padding: 10px 20px;
   position: sticky;
   top: 0;

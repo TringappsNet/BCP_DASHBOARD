@@ -174,8 +174,8 @@
   }
 
   .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #800020;
+    border-color: #800020;
     color: #fff;
   }
 
@@ -421,14 +421,17 @@
 
   
   .brand-wrapper {
-    width: 100px;
-    height: 40px; 
-    background-image: url('../../public/images/bcp2.png'); 
-    background-size: 50% auto; 
+    width: 90px;
+    height: 50px; 
+    background-image: url('../../public/images/JMI-logo2.png'); 
+    background-size: 100% auto; 
     background-repeat: no-repeat; 
-    margin-left: 20px;
-    -webkit-filter: grayscale(100%) brightness(9);
-    filter: grayscale(100%) brightness(9);
+    background-position: center;
+
+    
+    /* margin-left: 20px; */
+    /* -webkit-filter: grayscale(100%) brightness(9);
+    filter: grayscale(100%) brightness(9); */
     /* padding-bottom: 20px; */
     
   }
@@ -597,10 +600,10 @@ thead{
 }
 
 .btn-secondary{
-  background-color: #299689 !important;
+  background-color: #800020 !important;
 }
 .btn-secondary:hover{
-  background-color: #299689 !important;
+  background-color: #800020 !important;
 }
 .no-data-message{
 display: flex;
