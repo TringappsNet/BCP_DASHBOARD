@@ -4,6 +4,7 @@ import SendInvite from './sendInvite';
 import OrganizationPopup from './OrganizationPopup';
 import UserPop from './UserPop';
 import AuditGrid from './AuditGrid';
+import MetricsGrid from './MetricsGrid';
 import Guide from './Guide';
 import '../styles/popup.css';
 
@@ -11,6 +12,7 @@ const PopUpContainer = () => {
   const [roleID, setRoleID] = useState(null);
   const [showGuide, setShowGuide] = useState(false);
   const [showAuditGrid, setShowAuditGrid] = useState(false);
+  const [showMetricsGrid, setShowMetricsGrid] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showInvitePopup, setShowInvitePopup] = useState(false);
   const [showOrganizationPopup, setShowOrganizationPopup] = useState(false);
@@ -28,6 +30,7 @@ const PopUpContainer = () => {
     setShowOrganizationPopup(false);
     setShowUserPopup(false);
     setShowAuditGrid(false);
+    setShowMetricsGrid(false);
     setShowAuditGrid(false);
   };
 
@@ -38,6 +41,7 @@ const PopUpContainer = () => {
     setShowUserPopup(false);
     setShowAuditGrid(false);
     setShowAuditGrid(false);
+    setShowMetricsGrid(false);
   };
 
   const handleOrganizationPopupToggle = () => {
@@ -47,6 +51,7 @@ const PopUpContainer = () => {
     setShowInvitePopup(false);
     setShowAuditGrid(false);
     setShowAuditGrid(false);
+    setShowMetricsGrid(false);
   };
 
   const handleUserPopupToggle = () => {
@@ -56,6 +61,7 @@ const PopUpContainer = () => {
     setShowInvitePopup(false);
     setShowAuditGrid(false);
     setShowAuditGrid(false);
+    setShowMetricsGrid(false)
   };
 
   const handleAuditPopupToggle = () => {
@@ -67,6 +73,16 @@ const PopUpContainer = () => {
     setShowGuide(false);
   };
 
+  const handleMetricsPopupToggle = () => {
+    setShowMetricsGrid(!showMetricsGrid);
+    setShowUserPopup(false);
+    setShowOrganizationPopup(false);
+    setShowResetPopup(false);
+    setShowInvitePopup(false);
+    setShowGuide(false);
+    setShowAuditGrid(false);
+  };
+
   const handleGuidePopupToggle = () => {
     setShowGuide(!showGuide);
     setShowUserPopup(false);
@@ -74,6 +90,7 @@ const PopUpContainer = () => {
     setShowResetPopup(false);
     setShowInvitePopup(false);
     setShowAuditGrid(false);
+    setShowMetricsGrid(false)
 };
 
   const handleClosePopups = () => {
@@ -83,6 +100,8 @@ const PopUpContainer = () => {
     setShowUserPopup(false);
     setShowAuditGrid(false);
     setShowGuide(false);
+    setShowMetricsGrid(false)
+
   };
 
   const handleResetSuccess = () => {
@@ -110,11 +129,12 @@ const PopUpContainer = () => {
           <div className="dropdown-item-hover" onClick={handleOrganizationPopupToggle}>Portfolio Company</div>
           <div className="dropdown-item-hover" onClick={handleUserPopupToggle}>Users</div>
           <div className="dropdown-item-hover" onClick={handleAuditPopupToggle}>Audit History</div>
+          <div className="dropdown-item-hover" onClick={handleMetricsPopupToggle}>Metrics Data</div>
         </>
       )}
     {/* <div className="dropdown-item-hover" onClick={handleGuidePopupToggle}>BCP Guide</div> */}
       {/* Render popups based on roleID */}
-      {(showResetPopup || showInvitePopup || showOrganizationPopup || showUserPopup || showAuditGrid || showGuide) && (
+      {(showResetPopup || showInvitePopup || showOrganizationPopup || showUserPopup || showAuditGrid || showMetricsGrid || showGuide) && (
         <div className="popup-container backdrop">
           <div className="popup-inner" onClick={(e) => e.stopPropagation()}>
             {showResetPopup && <ResetNewPassword onClose={handleResetSuccess} />}
@@ -122,7 +142,8 @@ const PopUpContainer = () => {
             {(showOrganizationPopup && roleID === '1') && <OrganizationPopup className="Organisation" handleClose={handleClosePopups} />}
             {(showUserPopup && roleID === '1') && <UserPop handleClose={handleClosePopups} />}
             {(showAuditGrid && roleID === '1') && <AuditGrid handleClose={handleClosePopups} />}
-            {/* {showGuide && <Guide onClose={handleClosePopups} />} */}
+            {(showMetricsGrid && roleID === '1') && <MetricsGrid handleClose={handleClosePopups} />}
+            {showGuide && <Guide onClose={handleClosePopups} />}
           </div>
         </div>
       )}

@@ -184,7 +184,7 @@ function Dashboard() {
     async (acceptedFiles) => {
       setData([]);
       setLoading(true);
-  
+
       acceptedFiles.forEach(async (file) => {
         // Check if the file extension is supported
         const fileExtension = file.name.split(".").pop().toLowerCase();
@@ -196,7 +196,7 @@ function Dashboard() {
           setSnackbarVariant("error");
           return;
         }
-  
+
         const reader = new FileReader();
         reader.onload = async (e) => {
           const data = e.target.result;
@@ -216,9 +216,7 @@ function Dashboard() {
             const trimmedData = jsonData.filter((row) =>
               row.some((cell) => cell !== null && cell !== "")
             );
-  
-            let containsInvalidCharacters = false;
-  
+
             const cleanedData = trimmedData.map((row, rowIndex) => {
               if (rowIndex === 0) {
                 return row;
@@ -227,32 +225,24 @@ function Dashboard() {
                 if (columnIndex === 0 || columnIndex === 1) {
                   return cell;
                 }
-  
+
                 if (cell !== null && typeof cell === "string") {
                   const numericValue = parseFloat(cell);
                   if (!isNaN(numericValue) && /^[0-9.]+$/.test(cell)) {
                     return numericValue;
                   } else {
-                    containsInvalidCharacters = true;
                     return null;
                   }
                 }
-  
+
                 return cell;
               });
             });
-  
-            if (containsInvalidCharacters) {
-              setLoading(false);
-              setSnackbarOpen(true);
-              setSnackbarMessage("Excel contains text or special characters. Only numerical data is accepted.");
-              setSnackbarVariant("error");
-              return;
-            }
-  
             const header = cleanedData.shift();
             const filteredHeader = header.filter((col) => col !== null);
-            const mappedHeader = filteredHeader.map((col) => columnMap[col] || col);
+            const mappedHeader = filteredHeader.map(
+              (col) => columnMap[col] || col
+            );
             const newJsonData = cleanedData.map((row) => {
               const obj = {};
               mappedHeader.forEach((key, index) => {
@@ -260,7 +250,7 @@ function Dashboard() {
               });
               return obj;
             });
-  
+
             const updatedData = newJsonData.map((row) => {
               if (row["MonthYear"]) {
                 const dateString = row["MonthYear"].toString();
@@ -279,7 +269,7 @@ function Dashboard() {
             });
             setData((prevData) => [...prevData, ...updatedData]);
             setUploadedFileName(file.name);
-  
+
             const Org_ID = localStorage.getItem("Org_ID");
             const userId = localStorage.getItem("user_ID");
             try {
@@ -581,6 +571,7 @@ function Dashboard() {
         email,
         Org_ID,
         userId,
+        username,
       };
 
       const response = await fetch(`${PortURL}/update`, {

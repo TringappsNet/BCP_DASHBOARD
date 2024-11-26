@@ -132,7 +132,7 @@ table{
 .OrgIn {
   margin-left: -5px;
   border: 1px solid black;
-  width: 562px;
+  width: 600px;
   /* padding: 0px; */
   height: 37px;
   margin-bottom: 3px;
@@ -141,7 +141,7 @@ table{
   margin: -5px;
   margin-top: -7px;
   border-color: #e3dfdf;
-  position: absolute;
+  /* position: absolute; */
   right: 39.5%;
   
 }
